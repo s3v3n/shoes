@@ -957,6 +957,8 @@ shoes_native_app_open(shoes_app *app, char *path, int dialog)
     WS_VSCROLL | ES_AUTOVSCROLL;
   if (app->fullscreen)
     style = WINDOW_STYLE_FULLSCREEN;
+  if (app->always_on_top)
+    shoes_native_app_always_on_top(app, 1);
   app->slot->window = CreateWindowEx(
     exStyle, SHOES_SHORTNAME, SHOES_APPNAME, style,
     CW_USEDEFAULT, CW_USEDEFAULT,
